@@ -1,10 +1,10 @@
-# Controlador 
+## sbrfuzzy
 
-Instalação: pip install controlador
+Instalação: pip install sbrfuzzy
 
-versão = 0.0.1
+versão = 1.0.0
 
-**controlador** é um módulo python para aplicações com base em sistemas baseados em regras fuzzy 
+**sbrfuzzy** é um módulo python para aplicações com base em sistemas baseados em regras fuzzy 
 
 ## Funções 
 
