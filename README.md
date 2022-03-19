@@ -4,7 +4,7 @@ Instalação: pip install sbrfuzzy
 
 versão = 1.0.0
 
-**sbrfuzzy** é um módulo python para aplicações com base em sistemas baseados em regras fuzzy 
+**sbrfuzzy** é um módulo python para aplicações com base em sistemas baseados em regras fuzzy.
 
 ## Funções 
 
@@ -20,13 +20,13 @@ versão = 1.0.0
 
 * `variavellinguistica.grafico(none)`- método usado para plotar um gráfico com todos os seus termos linguísticos em seu domínio universo.
 
-* `fuzzificador(inferencia,desfuzzificacao,regras,vetvariaveislinguisticas,valores)`- método construtor para a definir como o controlador fuzzy irá se comportar, recebe em inferência o nome do método de inferência que será usado (disponivel apenas Mamdani no momento), recebe em desfuzificacao o método de desfuzificacao que será usado (disponivel controide, media dos maximos, centro dos maximos), recebe em regras uma lista onde cada indice recebe uma regra da forma ( "baixo e alto então alto" ), recebe em vetvariaveislinguisticas uma lista com as variaveis linguisticas que serão usadas e recebe em valores os valores que serão calculados no controlador.
+* `controlador(regras,vetvariaveislinguisticas,valores)`- método construtor para a definir como o controlador fuzzy irá se comportar, recebe em regras uma lista onde cada indice recebe uma regra da forma ( "baixo e alto então alto" ), recebe em vetvariaveislinguisticas uma lista com as variaveis linguisticas que serão usadas e recebe em valores os valores que serão calculados no controlador.
 
-* `fuzzificador.mapeia(none)`-  método usado para retornar uma lista contendo o grau de pertinência de dos valores inseridos com base em cada regra inserida.
+* `controlador.mapeia(none)`-  método usado para retornar uma lista contendo o grau de pertinência de dos valores inseridos com base em cada regra inserida.
 
-* `fuzzificador.ativarbase(none)`- método usado para retornar uma lista com o indice de cada regra ativada.
+* `controlador.mamdani(defuzzificacao)`- método usado para retornar um valor real correspondente ao resultado calculado pelo controlador aplicando o método de inferência de Mamdani. Este método recebe como parâmetro o método de defuzzificação que será utilizado, podendo ser escolhido o método do centroide, média dos máximos e centro dos máximos. Por padrão, caso nada seja inserido, será usado o método do centroide.
 
-* `fuzzificador.iniciar(none)`- método usado para retornar o resultado gerado pelos valores inseridos no contrudor com base nos métodos de inferencia, desfuzificação e base de regras inseridos no construtor.
+* `controlador.tsk(vet_regras)`- método usado para retornar um valor real correspondente ao resultado calculado pelo controlador aplicando o método de inferência de Takagi-Sugeno-Kang. Este método recebe como parâmetro uma lista contendo as funções que serão agregadas aos consequentes da base de regras, ordenadamente.
 
 
 
