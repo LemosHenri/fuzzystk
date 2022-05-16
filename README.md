@@ -10,7 +10,7 @@ versão = 1.0.0
 
 ## Descrição 
 
-**sbrfuzzy** é um módulo python para aplicações com base em sistemas baseados em regras fuzzy.
+O **sbrfuzzy** é um módulo python desenvolvido para ser uma solução alternativa que possibilita a criação de aplicações que fazem uso da lógica fuzzy, com foco em sistemas baseados em regras fuzzy (SBRF).
 
 ## Funções 
 
