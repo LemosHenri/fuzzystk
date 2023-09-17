@@ -4,13 +4,13 @@
 
 Usando Pypi
 ```
-pip install sbrfuzzy
+pip install fuzzystk
 ```
-versão = 1.0.0
+versão = 0.0.2
 
 ## Descrição 
 
-O **sbrfuzzy** é um módulo python desenvolvido para ser uma solução alternativa que possibilita a criação de aplicações que fazem uso da lógica fuzzy, com foco em sistemas baseados em regras fuzzy (SBRF).
+O **fuzzystk** é um módulo python desenvolvido para ser uma solução alternativa que possibilita a criação de aplicações que fazem uso da lógica fuzzy, com foco em sistemas baseados em regras fuzzy (SBRF).
 
 ## Funções 
 
