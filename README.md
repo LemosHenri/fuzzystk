@@ -38,38 +38,47 @@ O **fuzzystk** é um módulo python desenvolvido para ser uma solução alternat
 Malthus.py
 
 ```
-import numpy as np
-from controlador import fuzzificador,variavellinguistica
+import fuzzystk as fz
+import numpy as np 
 
-entrada = open("dados.txt","a")
-v = np.arange(0,300.1,0.1)
+entrada = open('dados.dat', 'w')
+n = 300
 
-v1 = variavellinguistica("População",np.arange(0,300.5,0.5))
-v1.adicionar("muito-baixa","trapezoidal",[0,0,18,40])
-v1.adicionar("baixa","triangular",[30,50,65])
-v1.adicionar("media","triangular",[55,80,110])
-v1.adicionar("alta","trapezoidal",[90,120,250,250])
+v1 = fz.ling_var("População",np.linspace(0,300,n))
+v1.add("baixa","trapezoidal",[0,0,25,45])
+v1.add("media-baixa","triangular",[30,50,70])
+v1.add("media","triangular",[55,75,110])
+v1.add("media-alta","triangular",[110,165,185])
+v1.add("alta","triangular",[160,190,210])
+v1.add("muito-alta","trapezoidal",[200,210,300,300])
 
-v2 = variavellinguistica("Variação",np.arange(0,110.5,0.5))
-v2.adicionar("muito-baixa","trapezoidal",[0,0,6,16])
-v2.adicionar("baixa","triangular",[5,18,23])
-v2.adicionar("media","triangular",[20,30,41])
-v2.adicionar("alta","trapezoidal",[28,55,110,110])
 
-br = ["muito-baixa então muito-baixa",
-             "baixa então baixa",
-             "media então media",
-             "alta então alta"]
+v2 = fz.ling_var("Variação",np.linspace(-2,10,n))
+v2.add("baixa-negativa","triangular",[-2,0,0])
+v2.add("baixa-positiva","triangular",[0,0,3])
+v2.add("media","triangular",[2,5,8])
+v2.add("alta","trapezoidal",[6,9,10,10])
+
+base_regras = ["baixa então baixa-positiva",
+                "media-baixa então media",
+                "media então alta",
+                "media-alta então media",
+                "alta então baixa-positiva",
+                "muito-alta então baixa-negativa"]
+
+#v1.plot()
+#v2.plot()
+
 h = 0.5
 x0 = 2
-interacao = 0
+it = 0
 
-while interacao < 30:
-    f = controlador(br,[v1,v2],[x0])    
-    entrada.write(str(interacao) + "\t" + str(x0) + "\n")
-    x1 = x0 + h*f.mamdani() 
-    interacao += 1 
-    
+while it < 250:
+    f = fz.controller(base_regras, [v1,v2], [x0])
+    entrada.write(str(it) + '\t' + str(x0) + '\n')
+    x0 = x0 + h*f.mamdani()
+    it += 1
+
 entrada.close()
 ```
 tsk.py
